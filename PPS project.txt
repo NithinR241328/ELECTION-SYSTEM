@@ -1,0 +1,56 @@
+#include<stdio.h>
+void Vote(int n);
+main()
+{
+  int n,stop;
+  printf("Vote for one of the Candidate listed below:\n");
+  printf("1)A\n2)B\n3)C\n");
+   scanf("%d",&n);
+  do{
+   if(n>=1&&n<=3)
+   {
+    Vote(n); 
+    printf("Enter 1 or 2 or 3 to continue voting else Enter 0to finish voting and find who won the Election.\n");
+    scanf("%d",&n);
+   }
+   }while(n!=0);
+  stop=n;
+ Vote(stop);
+ printf("\n***Election results declared***");
+}
+
+void Vote(int n)
+{
+
+ static int a,b,c;
+ if(n==1)
+ {
+  a++;
+ }
+ if(n==2)
+ {
+  b++;
+ }
+ if(n==3)
+ {
+  c++;
+ }
+ printf("Votes for A=%d\n",a);
+ printf("Votes for B=%d\n",b);
+ printf("Votes for C=%d\n",c);
+ if(n==0)
+ {
+  if(a>b&&a>c)
+  {
+   printf("\nA won the election with %d votes.\n",a);
+  }
+  if(b>a&&b>c)
+  {
+   printf("\nB won the election with %d votes.\n",b);
+  }
+  if(c>b&&c>a)
+  {
+   printf("\nC won the election with %d votes.\n",c);
+  }
+ }
+}
